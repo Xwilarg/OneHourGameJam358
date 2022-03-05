@@ -11,11 +11,23 @@ public class GameFile : MonoBehaviour
         if (Vector2.Distance(Target.transform.position, transform.position) < .1f)
         {
             Parent.Received++;
-            if (Parent.Received == Parent.FileCount)
+            Parent.UpdateText();
+            if (Parent.Received + Parent.Lost == Parent.FileCount)
             {
                 Destroy(Parent.gameObject);
             }
             Destroy(gameObject);
         }
+    }
+
+    private void OnMouseDown()
+    {
+        Parent.Lost++;
+        Parent.UpdateText();
+        if (Parent.Received + Parent.Lost == Parent.FileCount)
+        {
+            Destroy(Parent.gameObject);
+        }
+        Destroy(gameObject);
     }
 }
