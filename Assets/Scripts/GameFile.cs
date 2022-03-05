@@ -8,7 +8,7 @@ public class GameFile : MonoBehaviour
 
     private void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, Target.transform.position, 10f * Time.deltaTime);
+        transform.position = Vector2.MoveTowards(transform.position, Target.transform.position, 5f * Time.deltaTime);
         if (Vector2.Distance(Target.transform.position, transform.position) < .1f)
         {
             Parent.Received++;
@@ -16,6 +16,11 @@ public class GameFile : MonoBehaviour
             if (IsSec)
             {
                 Cloud.Instance.UpSecurity();
+            }
+            else
+
+            {
+                ScoreManager.Instance.IncScore();
             }
             if (Parent.Received + Parent.Lost == Parent.FileCount)
             {

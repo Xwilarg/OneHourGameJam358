@@ -444,6 +444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _file: {fileID: 2635851972615515748, guid: 2485c8d24bec2864d87ea3ae25960999, type: 3}
+  _fileSec: {fileID: 8696398971222237422, guid: 191aba15ed364504dba4c2948fbd0235, type: 3}
   _spawnDelayMin: 0.5
   _spawnDelayMax: 1
   _progress: {fileID: 5324202804419994620}

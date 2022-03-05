@@ -16,7 +16,7 @@ public class ComputerManager : MonoBehaviour
 
     public void StartUserInter()
     {
-        CanStartBadFiles += 3;
+        CanStartBadFiles ++;
     }
 
     [SerializeField]
