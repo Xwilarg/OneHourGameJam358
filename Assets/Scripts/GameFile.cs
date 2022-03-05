@@ -17,6 +17,11 @@ public class GameFile : MonoBehaviour
             {
                 Cloud.Instance.UpSecurity();
             }
+            else
+
+            {
+                ScoreManager.Instance.IncScore();
+            }
             if (Parent.Received + Parent.Lost == Parent.FileCount)
             {
                 Destroy(Parent.gameObject);

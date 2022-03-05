@@ -1,5 +1,6 @@
 using TMPro;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Cloud : MonoBehaviour
 {
@@ -23,6 +24,10 @@ public class Cloud : MonoBehaviour
     public void UpSecurity()
     {
         layer++;
+        if (layer == 10)
+        {
+            SceneManager.LoadScene("GameOver");
+        }
         _sec.text = $"Security layers: {layer} / 10";
     }
 }
