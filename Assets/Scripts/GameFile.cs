@@ -6,6 +6,9 @@ public class GameFile : MonoBehaviour
     public Computer Parent { set; get; }
     public bool IsSec { set; get; }
 
+    [SerializeField]
+    private AudioSource _source;
+
     private void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, Target.transform.position, 5f * Time.deltaTime);
@@ -32,6 +35,7 @@ public class GameFile : MonoBehaviour
 
             ScoreManager.Instance.IncScore();
         }
+        _source.Play();
         Parent.Lost++;
         Parent.UpdateText();
         ComputerManager.Instance.StartUserInter();
