@@ -14,7 +14,7 @@ public class Computer : MonoBehaviour
 
     public void UpdateText()
     {
-        _progress.text = $"{Received} / {FileCount} received";
+        _progress.text = $"{Sent} / {FileCount} sent";
         if (Lost > 0)
         {
             _lost.text = $"{Lost} lost";

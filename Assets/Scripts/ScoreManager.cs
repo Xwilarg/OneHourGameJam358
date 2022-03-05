@@ -10,7 +10,7 @@ public class ScoreManager : MonoBehaviour
 
     private void OnLevelWasLoaded(int level)
     {
-        var score = GameObject.FindGameObjectWithTag("Score");
+        var score = GameObject.Find("Score");
         if (score != null)
         {
             score.GetComponent<TMP_Text>().text = "Score: " + _scoreInt;
