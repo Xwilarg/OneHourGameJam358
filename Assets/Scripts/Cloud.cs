@@ -15,9 +15,9 @@ public class Cloud : MonoBehaviour
 
     private int layer;
 
-    private void Update()
+    private void Start()
     {
-        _sec.text = "Security layers: 0 / 10";
+        _sec.text = "Security layer: 0 / 10";
     }
 
     public void UpSecurity()
