@@ -1,4 +1,5 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class Computer : MonoBehaviour
 {
@@ -8,9 +9,20 @@ public class Computer : MonoBehaviour
 
     [SerializeField]
     private float _spawnDelayMin, _spawnDelayMax;
+    [SerializeField]
+    private TMP_Text _progress, _lost;
+
+    public void UpdateText()
+    {
+        _progress.text = $"{Received} / {FileCount} received";
+        if (Lost > 0)
+        {
+            _lost.text = $"{Lost} lost";
+        }
+    }
 
     public int FileCount { get; set; }
-    public int Sent, Received;
+    public int Sent, Received, Lost;
 
     private float timerSpawn;
     private void Start()
