@@ -5,7 +5,7 @@ public class Computer : MonoBehaviour
 {
     public GameObject Target { set; get; }
     [SerializeField]
-    private GameObject _file;
+    private GameObject _file, _fileSec;
 
     [SerializeField]
     private float _spawnDelayMin, _spawnDelayMax;
@@ -37,10 +37,13 @@ public class Computer : MonoBehaviour
 
         if (timerSpawn < 0f && Sent < FileCount)
         {
-            var go = Instantiate(_file, transform.position, Quaternion.identity);
+            var badFile = Random.Range(0, 100) < ComputerManager.Instance.CanStartBadFiles;
+
+            var go = Instantiate(badFile ? _fileSec : _file, transform.position, Quaternion.identity);
             var gf = go.GetComponent<GameFile>();
             gf.Target = Target;
             gf.Parent = this;
+            gf.IsSec = badFile;
             timerSpawn = Random.Range(_spawnDelayMin, _spawnDelayMax);
             Sent++;
         }
