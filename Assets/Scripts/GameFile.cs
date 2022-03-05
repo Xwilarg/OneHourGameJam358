@@ -4,6 +4,7 @@ public class GameFile : MonoBehaviour
 {
     public GameObject Target { set; get; }
     public Computer Parent { set; get; }
+    public bool IsSec { set; get; }
 
     private void Update()
     {
@@ -12,6 +13,10 @@ public class GameFile : MonoBehaviour
         {
             Parent.Received++;
             Parent.UpdateText();
+            if (IsSec)
+            {
+                Cloud.Instance.UpSecurity();
+            }
             if (Parent.Received + Parent.Lost == Parent.FileCount)
             {
                 Destroy(Parent.gameObject);
@@ -24,6 +29,7 @@ public class GameFile : MonoBehaviour
     {
         Parent.Lost++;
         Parent.UpdateText();
+        ComputerManager.Instance.StartUserInter();
         if (Parent.Received + Parent.Lost == Parent.FileCount)
         {
             Destroy(Parent.gameObject);
