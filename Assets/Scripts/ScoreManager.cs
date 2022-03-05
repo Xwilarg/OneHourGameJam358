@@ -42,9 +42,9 @@ public class ScoreManager : MonoBehaviour
     private int _scoreInt;
 
 public void IncScore()
-{
-    _score.text = $"Score: {_score}";
+    {
         _scoreInt++;
+        _score.text = $"Score: {_scoreInt}";
 }
 
     }
